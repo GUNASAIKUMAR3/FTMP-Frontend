@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -5,9 +6,8 @@ import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-const dotenv = require("dotenv");
+
 const port = process.env.PORT;
-dotenv.config();
 
 const SignUp = () => {
   const navigate = useNavigate();
