@@ -5,6 +5,9 @@ import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const dotenv = require("dotenv");
+const port = process.env.PORT;
+dotenv.config();
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -24,7 +27,7 @@ const SignUp = () => {
     event.preventDefault();
 
     axios
-      .post("http://localhost:5050/api/auth/signup", userData, {
+      .post(`${port}/api/auth/signup`, userData, {
         headers: {
           "Content-Type": "application/json",
         },
