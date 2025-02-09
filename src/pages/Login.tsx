@@ -7,8 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-const port = process.env.PORT;
-
 const Login = () => {
   const navigate = useNavigate();
 
@@ -27,7 +25,7 @@ const Login = () => {
     event.preventDefault();
 
     axios
-      .post(`${port}/api/auth/login`, userData, {
+      .post(`https://ftmp-backend.onrender.com/api/auth/login`, userData, {
         headers: {
           "Content-Type": "application/json",
         },
