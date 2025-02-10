@@ -1,15 +1,36 @@
 import { useState, useEffect } from "react";
-import Navigation from "../components/Navigation";
+import Navigation from "../../components/Navigation.tsx";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Plus, Utensils, Edit, Trash } from "lucide-react";
-import Modal from "./Modal.tsx";
+import Modal from "../Modal.tsx";
 
 const Meals = () => {
-  // Load meals from localStorage on component mount
+
   const loadMealsFromLocalStorage = () => {
     const storedMeals = localStorage.getItem("Meals");
-    return storedMeals ? JSON.parse(storedMeals) : [];
+    if (storedMeals) {
+      return JSON.parse(storedMeals);
+    } else {
+      return [
+        {
+          id: 1,
+          type: "Breakfast",
+          calories: "500",
+          protein: "30",
+          carbs: "60",
+          fat: "15",
+        },
+        {
+          id: 2,
+          type: "Lunch",
+          calories: "400",
+          protein: "20",
+          carbs: "50",
+          fat: "12",
+        },
+      ];
+    }
   };
 
   const [meals, setMeals] = useState(loadMealsFromLocalStorage());
@@ -23,7 +44,6 @@ const Meals = () => {
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Update localStorage whenever meals change
   useEffect(() => {
     localStorage.setItem("Meals", JSON.stringify(meals));
   }, [meals]);
@@ -35,8 +55,6 @@ const Meals = () => {
       [name]: value,
     }));
   };
-
-  // In your Meals component, update the handleAddMeal function:
 
   const handleAddMeal = (mealData) => {
     if (mealData.id === null) {
@@ -72,6 +90,7 @@ const Meals = () => {
 
     setIsModalOpen(false);
   };
+
   const handleEditMeal = (meal) => {
     setNewMeal(meal);
     setIsModalOpen(true);

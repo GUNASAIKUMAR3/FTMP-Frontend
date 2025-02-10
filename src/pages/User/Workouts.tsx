@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Navigation from "../components/Navigation";
+import Navigation from "@/components/Navigation.tsx";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {

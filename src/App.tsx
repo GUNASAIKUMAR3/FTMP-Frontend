@@ -6,12 +6,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-import Dashboard from "./pages/Dashboard";
-import Workouts from "./pages/Workouts";
-import Meals from "./pages/Meals";
-import Profile from "./pages/Profile";
+import Login from "./pages/Auth/Login/Login";
+import SignUp from "./pages/Auth/SignUp/SignUp";
+import Dashboard from "./pages/User/Dashboard";
+import Workouts from "./pages/User/Workouts";
+import Meals from "./pages/User/Meals";
+import Profile from "./pages/User/Profile";
 
 const queryClient = new QueryClient();
 

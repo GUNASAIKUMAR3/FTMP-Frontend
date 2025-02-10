@@ -1,4 +1,4 @@
-import Navigation from "../components/Navigation";
+import Navigation from "../../components/Navigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
